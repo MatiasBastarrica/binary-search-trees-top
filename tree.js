@@ -74,4 +74,27 @@ export class Tree {
       return true;
     }
   }
+
+  insert(value) {
+    // continue
+    if (this.includes(value)) {
+      return;
+    }
+    this.#insertRec(value, this.root);
+  }
+
+  #insertRec(value, node) {
+    if (node.data > value) {
+      if (node.leftNode === null) {
+        node.leftNode = new Node(value, null, null);
+      }
+      this.#insertRec(value, node.leftNode);
+    }
+    if (node.data < value) {
+      if (node.rightNode === null) {
+        this.rightNode = new Node(value, null, null);
+      }
+      this.#insertRec(value, node.rightNode);
+    }
+  }
 }
