@@ -38,8 +38,8 @@ export class Tree {
     let mid = start + Math.floor((end - start) / 2);
     let root = new Node(arr[mid]);
 
-    root.left = this.#sortedArrayToBSTRecur(arr, start, mid - 1);
-    root.right = this.#sortedArrayToBSTRecur(arr, mid + 1, end);
+    root.leftNode = this.#sortedArrayToBSTRecur(arr, start, mid - 1);
+    root.rightNode = this.#sortedArrayToBSTRecur(arr, mid + 1, end);
 
     return root;
   }
