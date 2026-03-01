@@ -1,3 +1,5 @@
+import { Node } from "./node.js";
+
 export class Tree {
   constructor(arr) {
     this.root = this.#buildTree(arr);
