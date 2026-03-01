@@ -43,4 +43,35 @@ export class Tree {
 
     return root;
   }
+
+  includes(value) {
+    return this.#includesRec(value, this.root);
+  }
+
+  #includesRec(value, node) {
+    let left;
+    let right;
+    if (node !== null && node.data === value) {
+      return true;
+    }
+
+    if (node.leftNode !== null) {
+      left = this.#includesRec(value, node.leftNode);
+      if (left) {
+        return true;
+      }
+    }
+    if (node.rightNode !== null) {
+      right = this.#includesRec(value, node.rightNode);
+      if (right) {
+        return true;
+      }
+    }
+
+    if (!left && !right) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
