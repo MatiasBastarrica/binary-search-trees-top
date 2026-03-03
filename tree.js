@@ -135,6 +135,14 @@ export class Tree {
             ? leftChild.leftNode
             : leftChild.rightNode;
           return true;
+        } else if (leftChild.leftNode && leftChild.rightNode) {
+          const replacement = this.#getInorderSuccesor(leftChild.rightNode);
+          const replacementData = replacement.data;
+          replacement.data = leftChild.data;
+          leftChild.data = replacementData;
+          if (this.#deleteRec(replacement.data, leftChild)) {
+            return true;
+          }
         }
       } else {
         if (this.#deleteRec(value, leftChild)) {
@@ -156,12 +164,41 @@ export class Tree {
             ? rightChild.leftNode
             : rightChild.rightNode;
           return true;
+        } else if (rightChild.leftNode && rightChild.rightNode) {
+          const replacement = this.#getInorderSuccesor(rightChild.rightNode);
+          const replacementData = replacement.data;
+          replacement.data = rightChild.data;
+          rightChild.data = replacementData;
+          if (this.#deleteRec(replacement.data, rightChild)) {
+            return true;
+          }
         }
       } else {
         if (this.#deleteRec(value, rightChild)) {
           return true;
         }
       }
+    }
+  }
+
+  #getInorderSuccesor(node) {
+    // let startNode = node.rightNode;
+    // let smallest = startNode.data;
+
+    // if (startNode.leftNode) {
+    //   return this.#getInorderSuccesor(startNode.leftNode);
+    // }
+
+    // if (node) {
+    //   if (node.data < smallest) {
+    //     smallest = node.data;
+    //     return node;
+    //   }
+    // }
+    if (node.leftNode) {
+      return this.#getInorderSuccesor(node);
+    } else {
+      return node;
     }
   }
 }

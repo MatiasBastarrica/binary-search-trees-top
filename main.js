@@ -15,10 +15,10 @@ prettyPrint(test.root);
 // console.log(test);
 // test.insert(8);
 // test.insert(10);
-test.deleteItem(9);
+// test.deleteItem(9);
 // prettyPrint(test.root);
 // test.deleteItem(1);
 // test.deleteItem(5);
-
+test.deleteItem(4);
 prettyPrint(test.root);
 // console.log(test);
