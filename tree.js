@@ -100,5 +100,8 @@ export class Tree {
 
   delete(value) {
     // PSEUDOCODE
+    // Deleting a node in a BST means removing the target node while ensuring that the tree remains a valid BST. Depending on the structure of the node to be deleted, there are three possible scenarios:
+    // Case 1: Node has No Children (Leaf Node)
+    // If the target node is a leaf node, it can be directly removed from the tree since it has no child to maintain.
   }
 }
