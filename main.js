@@ -15,7 +15,7 @@ prettyPrint(test.root);
 // console.log(test);
 // test.insert(8);
 // test.insert(10);
-test.deleteItem(6345);
+test.deleteItem(9);
 // prettyPrint(test.root);
 // test.deleteItem(1);
 // test.deleteItem(5);
