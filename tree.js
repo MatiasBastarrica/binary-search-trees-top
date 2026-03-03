@@ -114,5 +114,7 @@ export class Tree {
     // The inorder successor — the smallest value in the right subtree, which is the next greater value than the target node.
     // The inorder predecessor — the largest value in the left subtree, which is the next smaller value than the target node.
     // Once the replacement node is chosen, we replace the target node’s value with that node’s value, and then delete the replacement node, which will now fall under Case 1 (no children) or Case 2 (one child).
+
+    this.#deleteRec(value, this.root);
   }
 }
