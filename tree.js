@@ -117,4 +117,43 @@ export class Tree {
 
     this.#deleteRec(value, this.root);
   }
+
+  #deleteRec(value, node) {
+    let leftChild = node.leftNode;
+    let rightChild = node.rightNode;
+
+    // let removed;
+
+    if (leftChild !== null) {
+      if (
+        leftChild.data === value &&
+        !leftChild.leftNode &&
+        !leftChild.rightNode
+      ) {
+        node.leftNode = null;
+        // removed = true;
+        return true;
+      } else {
+        return this.#deleteRec(value, leftChild);
+      }
+    }
+
+    if (rightChild !== null) {
+      if (
+        rightChild.data === value &&
+        !rightChild.leftNode &&
+        !rightChild.rightNode
+      ) {
+        node.rightNode = null;
+        // removed = true;
+        return true;
+      } else {
+        return this.#deleteRec(value, rightChild);
+      }
+    }
+
+    // if (removed) {
+    //   return;
+    // }
+  }
 }
