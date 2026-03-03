@@ -97,4 +97,6 @@ export class Tree {
       this.#insertRec(value, node.rightNode);
     }
   }
+
+  delete(value) {}
 }
