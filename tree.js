@@ -127,9 +127,19 @@ export class Tree {
         if (!leftChild.leftNode && !leftChild.rightNode) {
           node.leftNode = null;
           return true;
+        } else if (
+          (leftChild.leftNode && !leftChild.rightNode) ||
+          (!leftChild.leftNode && leftChild.rightNode)
+        ) {
+          node.leftNode = leftChild.leftNode
+            ? leftChild.leftNode
+            : leftChild.rightNode;
+          return true;
         }
       } else {
-        return this.#deleteRec(value, leftChild);
+        if (this.#deleteRec(value, leftChild)) {
+          return true;
+        }
       }
     }
 
@@ -138,9 +148,19 @@ export class Tree {
         if (!rightChild.leftNode && !rightChild.rightNode) {
           node.rightNode = null;
           return true;
+        } else if (
+          (rightChild.leftNode && !rightChild.rightNode) ||
+          (!rightChild.leftNode && rightChild.rightNode)
+        ) {
+          node.rightNode = rightChild.leftNode
+            ? rightChild.leftNode
+            : rightChild.rightNode;
+          return true;
         }
       } else {
-        return this.#deleteRec(value, rightChild);
+        if (this.#deleteRec(value, rightChild)) {
+          return true;
+        }
       }
     }
   }
