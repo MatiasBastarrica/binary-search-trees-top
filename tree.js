@@ -122,8 +122,6 @@ export class Tree {
     let leftChild = node.leftNode;
     let rightChild = node.rightNode;
 
-    // let removed;
-
     if (leftChild !== null) {
       if (
         leftChild.data === value &&
@@ -131,7 +129,6 @@ export class Tree {
         !leftChild.rightNode
       ) {
         node.leftNode = null;
-        // removed = true;
         return true;
       } else {
         return this.#deleteRec(value, leftChild);
@@ -145,15 +142,10 @@ export class Tree {
         !rightChild.rightNode
       ) {
         node.rightNode = null;
-        // removed = true;
         return true;
       } else {
         return this.#deleteRec(value, rightChild);
       }
     }
-
-    // if (removed) {
-    //   return;
-    // }
   }
 }
