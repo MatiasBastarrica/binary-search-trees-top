@@ -98,7 +98,7 @@ export class Tree {
     }
   }
 
-  delete(value) {
+  deleteItem(value) {
     if (!this.includes(value)) {
       return;
     }
