@@ -98,5 +98,7 @@ export class Tree {
     }
   }
 
-  delete(value) {}
+  delete(value) {
+    // PSEUDOCODE
+  }
 }
