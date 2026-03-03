@@ -123,26 +123,22 @@ export class Tree {
     let rightChild = node.rightNode;
 
     if (leftChild !== null) {
-      if (
-        leftChild.data === value &&
-        !leftChild.leftNode &&
-        !leftChild.rightNode
-      ) {
-        node.leftNode = null;
-        return true;
+      if (leftChild.data === value) {
+        if (!leftChild.leftNode && !leftChild.rightNode) {
+          node.leftNode = null;
+          return true;
+        }
       } else {
         return this.#deleteRec(value, leftChild);
       }
     }
 
     if (rightChild !== null) {
-      if (
-        rightChild.data === value &&
-        !rightChild.leftNode &&
-        !rightChild.rightNode
-      ) {
-        node.rightNode = null;
-        return true;
+      if (rightChild.data === value) {
+        if (!rightChild.leftNode && !rightChild.rightNode) {
+          node.rightNode = null;
+          return true;
+        }
       } else {
         return this.#deleteRec(value, rightChild);
       }
