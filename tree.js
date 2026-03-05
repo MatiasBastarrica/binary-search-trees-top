@@ -1,5 +1,5 @@
 import { Node } from "./node.js";
-import { Queue } from "queue.js";
+import { Queue } from "./queue.js";
 
 export class Tree {
   constructor(arr) {
@@ -175,6 +175,21 @@ export class Tree {
       return this.#getInorderSuccesor(node);
     } else {
       return node;
+    }
+  }
+
+  levelOrderForEach(callback) {
+    const queue = new Queue();
+    queue.enqueue(this.root);
+    while (!queue.isEmpty()) {
+      const node = queue.dequeue();
+      callback(node);
+      if (node.leftNode) {
+        queue.enqueue(node.leftNode);
+      }
+      if (node.rightNode) {
+        queue.enqueue(node.rightNode);
+      }
     }
   }
 }

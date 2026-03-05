@@ -19,6 +19,12 @@ prettyPrint(test.root);
 // prettyPrint(test.root);
 // test.deleteItem(1);
 // test.deleteItem(5);
-test.deleteItem(4);
-prettyPrint(test.root);
+// test.deleteItem(4);
+// prettyPrint(test.root);
 // console.log(test);
+
+function printNode(node) {
+  console.log(node.data);
+}
+
+test.levelOrderForEach(printNode);
