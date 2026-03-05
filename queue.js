@@ -21,4 +21,8 @@ class Queue {
   isEmpty() {
     return this.tailIndex === this.headIndex;
   }
+
+  size() {
+    return this.tailIndex - this.headIndex;
+  }
 }
