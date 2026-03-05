@@ -28,4 +28,5 @@ function printNode(node) {
 }
 
 // test.levelOrderForEach(printNode);
-test.preOrderForEach(printNode);
+// test.preOrderForEach(printNode);
+test.postOrderForEach(printNode);
