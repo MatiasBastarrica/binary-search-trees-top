@@ -179,6 +179,9 @@ export class Tree {
   }
 
   levelOrderForEach(callback) {
+    if (!callback) {
+      throw new Error("A callback is required");
+    }
     const queue = new Queue();
     queue.enqueue(this.root);
     while (!queue.isEmpty()) {
