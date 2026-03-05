@@ -17,4 +17,8 @@ class Queue {
     this.headIndex++;
     return item;
   }
+
+  isEmpty() {
+    return this.tailIndex === this.headIndex;
+  }
 }
