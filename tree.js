@@ -1,4 +1,5 @@
 import { Node } from "./node.js";
+import { Queue } from "queue.js";
 
 export class Tree {
   constructor(arr) {
