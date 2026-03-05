@@ -27,4 +27,5 @@ function printNode(node) {
   console.log(node.data);
 }
 
-test.levelOrderForEach(printNode);
+// test.levelOrderForEach(printNode);
+test.inOrderForEach(printNode);

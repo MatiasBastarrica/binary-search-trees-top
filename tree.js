@@ -195,4 +195,18 @@ export class Tree {
       }
     }
   }
+
+  inOrderForEach(callback, node = this.root) {
+    if (!callback) {
+      throw new Error("A callback is required");
+    }
+    if (node.leftNode) {
+      this.inOrderForEach(callback, node.leftNode);
+    }
+
+    callback(node);
+    if (node.rightNode) {
+      this.inOrderForEach(callback, node.rightNode);
+    }
+  }
 }
