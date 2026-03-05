@@ -28,4 +28,4 @@ function printNode(node) {
 }
 
 // test.levelOrderForEach(printNode);
-test.inOrderForEach(printNode);
+test.preOrderForEach(printNode);
