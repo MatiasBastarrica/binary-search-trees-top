@@ -9,4 +9,12 @@ class Queue {
     this.items[this.tailIndex] = item;
     this.tailIndex++;
   }
+
+  dequeue() {
+    if (this.isEmpty()) return null;
+    let item = this.items[this.headIndex];
+    delete this.items[this.headIndex];
+    this.headIndex++;
+    return item;
+  }
 }
