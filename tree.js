@@ -295,7 +295,14 @@ export class Tree {
     }
   }
 
-  depth(value, node = this.root) {
+  depth(value) {
+    if (!this.includes(value)) {
+      return undefined;
+    }
+    return this.#depthRec(value);
+  }
+
+  #depthRec(value, node = this.root) {
     let count = 0;
     if (node.data === value) {
       return 0;
@@ -303,7 +310,7 @@ export class Tree {
 
     if (node.leftNode) {
       count++;
-      count += this.depth(value, node.leftNode);
+      count += this.#depthRec(value, node.leftNode);
       if (count) {
         return count;
       }
@@ -311,7 +318,7 @@ export class Tree {
 
     if (node.rightNode) {
       count++;
-      count += this.depth(value, node.rightNode);
+      count += this.#depthRec(value, node.rightNode);
       if (count) {
         return count;
       }

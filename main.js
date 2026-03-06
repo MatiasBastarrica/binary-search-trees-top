@@ -33,4 +33,4 @@ function printNode(node) {
 // test.postOrderForEach(printNode);
 
 // console.log(test.height(8));
-console.log(test.depth(7));
+console.log(test.depth(23));
