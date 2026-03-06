@@ -326,4 +326,48 @@ export class Tree {
 
     return -1;
   }
+
+  isBalanced(node = this.root) {
+    let leftSubtree;
+    let rightSubtree;
+    let leftHeight;
+    let rightHeight;
+
+    if (node === null) {
+      return true;
+    }
+
+    leftSubtree = this.isBalanced(node.leftNode);
+    rightSubtree = this.isBalanced(node.rightNode);
+
+    if (!leftSubtree || !rightSubtree) {
+      return false;
+    }
+
+    if (node.leftNode) {
+      leftHeight = this.height(node.leftNode.data);
+    } else {
+      leftHeight = -1;
+    }
+
+    if (node.rightNode) {
+      rightHeight = this.height(node.rightNode.data);
+    } else {
+      rightHeight = -1;
+    }
+
+    if (leftHeight > rightHeight) {
+      if (leftHeight - rightHeight <= 1) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      if (rightHeight - leftHeight <= 1) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
 }
