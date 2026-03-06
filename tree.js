@@ -294,4 +294,29 @@ export class Tree {
       return rightCount;
     }
   }
+
+  depth(value, node = this.root) {
+    let count = 0;
+    if (node.data === value) {
+      return 0;
+    }
+
+    if (node.leftNode) {
+      count++;
+      count += this.depth(value, node.leftNode);
+      if (count) {
+        return count;
+      }
+    }
+
+    if (node.rightNode) {
+      count++;
+      count += this.depth(value, node.rightNode);
+      if (count) {
+        return count;
+      }
+    }
+
+    return -1;
+  }
 }
