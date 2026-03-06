@@ -11,6 +11,7 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 };
 
 const test = new Tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]);
+test.insert(2);
 prettyPrint(test.root);
 // console.log(test);
 // test.insert(8);
@@ -29,4 +30,6 @@ function printNode(node) {
 
 // test.levelOrderForEach(printNode);
 // test.preOrderForEach(printNode);
-test.postOrderForEach(printNode);
+// test.postOrderForEach(printNode);
+
+console.log(test.height(8));

@@ -242,4 +242,56 @@ export class Tree {
 
     callback(node);
   }
+
+  height(value) {
+    if (!this.includes(value)) {
+      return undefined;
+    }
+    let node = this.#findNode(value);
+    let height = this.#heightRec(node);
+    return height;
+  }
+
+  #findNode(value, node = this.root) {
+    let result;
+
+    if (node.data === value) {
+      return node;
+    }
+
+    if (node.leftNode) {
+      result = this.#findNode(value, node.leftNode);
+      if (result) {
+        return result;
+      }
+    }
+
+    if (node.rightNode) {
+      result = this.#findNode(value, node.rightNode);
+      if (result) {
+        return result;
+      }
+    }
+  }
+
+  #heightRec(node) {
+    let leftCount = 0;
+    let rightCount = 0;
+
+    if (node.leftNode) {
+      leftCount += 1;
+      leftCount += this.#heightRec(node.leftNode);
+    }
+
+    if (node.rightNode) {
+      rightCount += 1;
+      rightCount += this.#heightRec(node.rightNode);
+    }
+
+    if (leftCount > rightCount) {
+      return leftCount;
+    } else {
+      return rightCount;
+    }
+  }
 }
