@@ -31,9 +31,18 @@ function printNode(node) {
 // test.levelOrderForEach(printNode);
 // test.preOrderForEach(printNode);
 // test.postOrderForEach(printNode);
+// test.inOrderForEach(printNode);
 
 // console.log(test.height(3));
 // console.log(test.height(null));
 // console.log(test.depth(23));
+// console.log(test.isBalanced());
+test.insert(24);
+test.insert(25);
+test.insert(26);
+prettyPrint(test.root);
+// console.log(test.isBalanced());
+console.log(test.rebalance());
 
+prettyPrint(test.root);
 console.log(test.isBalanced());

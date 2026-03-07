@@ -93,7 +93,7 @@ export class Tree {
     }
     if (node.data < value) {
       if (node.rightNode === null) {
-        this.rightNode = new Node(value, null, null);
+        node.rightNode = new Node(value, null, null);
       }
       this.#insertRec(value, node.rightNode);
     }
@@ -370,4 +370,23 @@ export class Tree {
       }
     }
   }
+
+  rebalance() {
+    let balancedArr = [];
+    function addToArr(node, arr = balancedArr) {
+      arr.push(node.data);
+    }
+    this.inOrderForEach(addToArr);
+    const newRoot = this.#sortedArrayToBSTRecur(
+      balancedArr,
+      0,
+      balancedArr.length - 1,
+    );
+    this.root = newRoot;
+  }
+
+  // #addToArr(node,arr = []){
+  //   arr.push(node.data)
+  //   return arr
+  // }
 }
